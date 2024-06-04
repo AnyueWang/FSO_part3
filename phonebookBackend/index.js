@@ -1,7 +1,11 @@
 const express = require("express")
 const app = express()
+const morgan = require('morgan')
 
 app.use(express.json())
+
+morgan.token('content', (req,res)=>JSON.stringify(req.body))
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :content'))
 
 let persons = [
     {
@@ -55,7 +59,6 @@ app.delete('/api/persons/:id', (req, res) => {
 
     if (!!person) {
         persons = persons.filter(e => e.id !== id)
-        console.log(persons)
         res.status(204).end()
     } else {
         res.status(404).end()
@@ -74,7 +77,7 @@ app.post('/api/persons', (req, res) => {
     }
 
     if (persons.some(e => e.name === info.name)) {
-        return res.status(409).json({ 
+        return res.status(400).json({ 
             error: "Name must be unique" 
         })
     }
@@ -85,7 +88,6 @@ app.post('/api/persons', (req, res) => {
         "number": info.number
     }
     persons = persons.concat(person)
-    console.log(persons)
     res.json(person)
 
 })
