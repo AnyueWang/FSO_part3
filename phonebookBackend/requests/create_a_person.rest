@@ -24,3 +24,13 @@ Content-Type: application/json
     "name": "Dan Abramov",
     "number": "01-23-45-67"
 }
+
+###
+
+POST https://phonebookbackend-fso.fly.dev/api/persons
+Content-Type: application/json
+
+{
+    "name": "Elon Musk",
+    "number": "01-23-45-67"
+}
