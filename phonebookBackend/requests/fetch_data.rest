@@ -1,1 +1,13 @@
 GET http://phonebookbackend-fso.fly.dev/api/persons
+
+###
+GET http://localhost:3001/api/persons
+
+###
+GET http://localhost:3001/info
+
+###
+GET http://localhost:3001/api/persons/66607dddd8e428490f7a7e79
+
+###
+GET http://localhost:3001/api/persons/0
