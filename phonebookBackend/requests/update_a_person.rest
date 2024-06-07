@@ -15,3 +15,12 @@ Content-Type: application/json
     "name": "Taylor Swift",
     "number": "01-23-45-67"
 }
+
+###
+PUT http://localhost:3001/api/persons/6661b89009722685ec24f783
+Content-Type: application/json
+
+{
+    "name": "Ta",
+    "number": "01-23-45-67"
+}
