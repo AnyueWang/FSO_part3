@@ -1,5 +1,11 @@
 DELETE http://localhost:3001/api/persons/2
 
 ###
-
 DELETE http://localhost:3001/api/persons/5
+
+###
+DELETE http://localhost:3001/api/persons/6661baab7c279c237b2c311d
+
+###
+//wrong id
+DELETE http://localhost:3001/api/persons/6661baab7c279c237b2c3111
