@@ -9,16 +9,16 @@ app.use(express.static('dist'))
 app.use(express.json())
 app.use(cors())
 
-morgan.token('content', (req, res) => JSON.stringify(req.body))
+morgan.token('content', (req) => JSON.stringify(req.body))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :content'))
 
-app.get('/api/persons', (req, res) => {
+app.get('/api/persons', (_req, res) => {
     Person.find({}).then(result => {
         res.json(result)
     })
 })
 
-app.get('/info', (req, res) => {
+app.get('/info', (_req, res) => {
     Person.find({}).then(result => {
         const time = Date()
         const num = result.length
@@ -91,7 +91,7 @@ app.post('/api/persons', (req, res, next) => {
     })
 })
 
-const errorHandler = (error, req, res, next) => {
+const errorHandler = (error, _req, res, next) => {
     console.log(error.message)
     if (error.name === 'CastError') {
         return res.status(400).send({ error: 'malformatted id' })

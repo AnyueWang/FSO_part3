@@ -10,7 +10,8 @@
     "build:ui": "rm -rf dist && cd ../../FSO_part2/phonebook && npm run build && cp -r dist ../../FSO_part3/phonebookBackend",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
-    "logs:prod": "fly logs"
+    "logs:prod": "fly logs",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "Anyue Wang",
@@ -24,6 +25,10 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.5.7"
+    "@eslint/js": "^9.4.0",
+    "@flydotio/dockerfile": "^0.5.7",
+    "@stylistic/eslint-plugin-js": "^2.1.0",
+    "eslint": "^9.4.0",
+    "globals": "^15.4.0"
   }
 }
